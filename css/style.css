@@ -34,26 +34,29 @@ h1 {
 }
 
 .card {
-  width: 220px;
-  height: 330px;
-  background-color: black;
-  color: white;
+  width: 222px;
+  height: 332px;
   cursor: pointer;
   position: relative;
   margin-bottom: 20px;
 }
-img{
+
+.movie-data{
   width: 100%;
   height: 100%;
+  top:0;
+  left:0;
+  background-color: black;
   position: absolute;
-}
-.card:hover ul {
-  display: block;
+  visibility: hidden;
+  overflow: scroll;
 }
 
-ul {
-  display: none;
+.card:hover .movie-data {
+  visibility: visible;
 }
+
 li {
   list-style-type: none;
+  color: white;
 }
