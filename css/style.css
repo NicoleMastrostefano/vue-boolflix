@@ -6,6 +6,7 @@
 
 body {
   background-color:#323232;
+  height: 100vh;
 }
 
 header {
@@ -19,4 +20,28 @@ header {
 
 h1 {
   color: red;
+}
+
+#search {
+  height: 25px;
+}
+
+#container-card {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 30px;
+}
+
+.card {
+  width: 220px;
+  height: 330px;
+  background-color: black;
+  color: white;
+  padding: 20px;
+
+}
+
+li {
+  list-style-type: none;
 }

@@ -8,10 +8,27 @@
     <title>Boolflix</title>
   </head>
   <body>
-    <header>
-      <h1>BOOLFLIX</h1>
-      <input type="text" name="search" value=""placeholder="&#128269; Search movie">
-    </header>
+    <div id="root">
+      <header>
+        <h1>BOOLFLIX</h1>
+        <div id="search">
+          <input type="text" @keyup.enter="FilterMovie"
+         value=""placeholder="&#128269; Search movie">
+          <!-- <button type="button" name="button"></button> -->
+        </div>
+      </header>
+      <main id="container-card">
+        <div class="card">
+          <ul v-for="movie in movies">
+            <li>Titolo:</li>
+            <li>Titolo originale:</li>
+            <li>Lingua:</li>
+            <li>Voto:</li>
+          </ul>
+
+        </div>
+      </div>
+    </main>
 
 
 
