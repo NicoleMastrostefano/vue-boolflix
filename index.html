@@ -11,11 +11,10 @@
     <div id="root">
       <header>
         <h1>BOOLFLIX</h1>
-        <div id="search">
-          <input type="text" @keyup.enter="FilterMovie"
-          v-model="search" value=""placeholder="&#128269; Search movie">
-          <!-- <button type="button" name="button"></button> -->
-        </div>
+        <ul id="search">
+          <li><input type="text" @keyup.enter="FilterMovie"
+          v-model="search" value=""placeholder="&#128269; Search movie"></li>
+          <!-- <li> <button v-on:click="FilterMovie"type="button" name="button"></button> </li> -->
       </header>
       <main id="container-card">
         <div v-for="movie in movies"class="card">
@@ -25,7 +24,7 @@
               <li><strong>Titolo: </strong>{{ movie.title}}</li>
               <li><strong>Titolo orginale: </strong>{{  movie.original_title}}</li>
               <li><strong>Lingua: </strong> {{movie.original_language}}</li>
-              <li>Voto: </li>
+              <li><strong>Voto: </strong> </li>
               <li><strong>Overview: </strong>{{ movie.overview }}</li>
             </ul>
           </div>

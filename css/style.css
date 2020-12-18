@@ -22,9 +22,21 @@ h1 {
   color: red;
 }
 
-#search {
-  height: 25px;
+#search input{
+  height: 35px;
+  padding: 10px;
 }
+/* button {
+  width: 50px;
+  height: 30px;
+  background-color: red;
+  border-radius: 3px;
+  margin-right: 20px;
+} */
+
+/* #search li {
+  display: inline-block;
+} */
 
 #container-card {
   display: flex;
@@ -34,8 +46,8 @@ h1 {
 }
 
 .card {
-  width: 222px;
-  height: 332px;
+  width: 220px;
+  height: 330px;
   cursor: pointer;
   position: relative;
   margin-bottom: 20px;
@@ -50,6 +62,7 @@ h1 {
   position: absolute;
   visibility: hidden;
   overflow: scroll;
+  padding: 30px 10px;
 }
 
 .card:hover .movie-data {
@@ -57,6 +70,7 @@ h1 {
 }
 
 li {
+
   list-style-type: none;
   color: white;
 }
