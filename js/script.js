@@ -25,6 +25,7 @@ var app = new Vue (
       })
       .then((result)=> {
         console.log(result.data.results);
+        this.movies=result.data.results
       })
     }
   }
