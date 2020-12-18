@@ -3,11 +3,15 @@ var app = new Vue (
     el:"#root",
     data: {
       movies:[],
+      search:"",
 
     },
 
   methods:{
     FilterMovie(){
+      console.log(app.search);
+      {
+
 
 
       axios
@@ -15,12 +19,12 @@ var app = new Vue (
         params: {
           api_key: "adb08e6d46258c873174c3f5773f620a",
           language:"it-IT",
-          query:
+          query:app.search
+          // salvare in una variabile app.search?
         }
       })
       .then((result)=> {
-
-
+        console.log(result.data.results);
       })
     }
   }
@@ -29,3 +33,18 @@ var app = new Vue (
 
 
 )
+
+
+
+// results:{Movie List Result Object}
+// poster_path
+// overview
+// release_date
+// genre_ids
+// id
+// original_title
+// original_language
+// title
+// popularity
+// vote_count
+// vote_average
