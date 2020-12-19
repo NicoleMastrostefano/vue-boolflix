@@ -13,20 +13,24 @@
     <div id="root">
       <header>
         <h1>BOOLFLIX</h1>
-        <ul id="search">
-          <li><input type="text" @keyup.enter="FilterMovie"
-          v-model="search" value=""placeholder="&#128269; Search movie"></li>
-          <!-- <li> <button v-on:click="FilterMovie"type="button" name="button"></button> </li> -->
+        <div class="search-button">
+          <div class="container">
+            <span id="remove"></span>
+            <input type="search" @keyup.enter="FilterMovie"
+            v-model="search" id="search" placeholder="&#128269; Search a movie">
+          </div>
+        </div>
       </header>
       <main id="container-card">
         <div v-for="movie in movies"class="card">
-          <img :src="'https://image.tmdb.org/t/p/w220_and_h330_face' + movie.poster_path" alt="">
+          <img v-if="movie.poster_path != null":src="imgPrefix + movie.poster_path" alt="">
+          <img class="defaultPoster"v-else :src="defaultPoster" alt="">
           <div class="movie-data">
             <ul>
               <li><strong>Titolo: </strong>{{ movie.title}}</li>
-              <li><strong>Titolo orginale: </strong>{{  movie.original_title}}</li>
-              <li><strong>Lingua: </strong> {{movie.original_language}}</li>
-              <li><strong>Voto: </strong> </li>
+              <li><strong>Titolo orginale: </strong>{{  movie.original_title }}</li>
+              <li><strong>Lingua: </strong> {{ movie.original_language }}</li>
+              <li><strong>Voto:</strong> {{ movie.vote_average }}</li>
               <li><strong>Overview: </strong>{{ movie.overview }}</li>
             </ul>
           </div>

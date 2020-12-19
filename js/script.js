@@ -4,10 +4,13 @@ var app = new Vue (
     data: {
       movies:[],
       search:"",
+      imgPrefix:"https://image.tmdb.org/t/p/w220_and_h330_face",
+      defaultPoster:"img/not-available.jpg"
 
     },
 
   methods:{
+
     FilterMovie(){
       console.log(app.search);
       {
@@ -15,12 +18,12 @@ var app = new Vue (
 
 
       axios
+
       .get("https://api.themoviedb.org/3/search/movie",{
         params: {
           api_key: "adb08e6d46258c873174c3f5773f620a",
           language:"it-IT",
-          query:app.search
-          // salvare in una variabile app.search?
+          query:this.search
         }
       })
       .then((result)=> {
@@ -28,11 +31,11 @@ var app = new Vue (
         this.movies=result.data.results
       })
     }
-  }
-}
-}
+  },
 
 
+},
+}
 )
 
 
