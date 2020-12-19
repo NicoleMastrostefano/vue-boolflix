@@ -17,7 +17,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px;
+  padding: 40px;
 }
 
 h1 {
@@ -40,21 +40,18 @@ h1 {
   margin-top: 27px;
   color: #FFF;
   transition: 0.3s ease-out;
-  transition: 0.3s ease-out;
 }
 
 #search{
   width: 40px;
   height: 30px;
-  background-color: #D4D4D4;
-  border: none;
+  background-color: black;
+  border:none;
   font-size: 0.9em;
   float: right;
   padding-left: 10px;
   transition: 0.6s ease-out;
-  transition: 0.6s ease-out;
-  border-radius: 20px;
-
+  color: white;
 }
 
 #search:focus,
@@ -62,15 +59,17 @@ h1 {
   outline:none;
   width: 400px;
   padding-right: 20px;
+  border: 1px solid white;
 }
 
 .container:hover #search{
   width: 400px;
-  background-color:#7F7F7F;
+  background-color: rgba(000, 000, 000, 0.8);
+  border: 1px solid white;
 }
 
 .container:hover #remove{
-  color: #424242;
+  background-color: rgba(000, 000, 000, 0.8);
 }
 
 #container-card {
