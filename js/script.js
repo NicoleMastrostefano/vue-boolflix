@@ -24,6 +24,7 @@ var app = new Vue (
           query:this.search
         }
       })
+
       .then((result)=> {
         console.log(result.data.results);
         this.movies=result.data.results
@@ -44,13 +45,3 @@ var app = new Vue (
 
   }
 )
-
-
-
-// results:{Movie List Result Object}
-// poster_path
-// overview
-// original_title
-// original_language
-// title
-// vote_average

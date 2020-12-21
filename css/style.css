@@ -43,7 +43,7 @@ h1 {
 }
 
 #search{
-  width: 40px;
+  width: 42px;
   height: 30px;
   background-color: black;
   border:none;
@@ -116,7 +116,6 @@ li {
 
 .movie-data i {
   color:#FFBD00;
-
 }
 
 .flags{

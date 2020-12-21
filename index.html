@@ -17,7 +17,6 @@
         <div class="search-button">
           <div class="container">
             <span id="remove"></span>
-            <!-- Cliccando si devono cercare sull’API tutti i film che contengono ciò che ha scritto l’utente. -->
             <input type="search" @keyup.enter="FilterMovie"
             v-model="search" id="search" placeholder="&#128269; Search a movie">
           </div>
@@ -26,7 +25,6 @@
       <main id="container-card">
         <div v-for="movie in movies"class="card">
           <img v-if="movie.poster_path != null":src="imgPrefix + movie.poster_path" alt="">
-          <!-- Utilizziamo un’immagine placeholder quando non riceviamo una copertina dall’API. -->
           <img class="defaultPoster"v-else :src="defaultPoster" alt="">
           <div class="movie-data">
             <ul>
@@ -53,16 +51,3 @@
     <script src="js/script.js" charset="utf-8"></script>
   </body>
 </html>
-
-
-
-
-<!-- esempi -->
-<!--
- <div v-if="(selectedProducts.length <= 2) && ( selectedProducts.includes('Apples') || selectedProducts.includes('Pears') )">
-...show mycontent...
-</div>
-
-data: {
-    selectedProducts: []
-} -->
