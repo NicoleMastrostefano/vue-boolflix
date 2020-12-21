@@ -111,8 +111,18 @@ h1 {
 li {
   list-style-type: none;
   color: white;
+  margin-bottom: 5px;
 }
 
+.movie-data i {
+  color:#FFBD00;
+
+}
+
+.flags{
+  height: 12px;
+  width: 20px;
+}
 
 .defaultPoster {
   width: 220px;

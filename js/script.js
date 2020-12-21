@@ -5,8 +5,8 @@ var app = new Vue (
       movies:[],
       search:"",
       imgPrefix:"https://image.tmdb.org/t/p/w220_and_h330_face",
-      defaultPoster:"img/not-available.jpg"
-
+      defaultPoster:"img/images.png",
+      flags:["it","en","fr"]
     },
 
   methods:{
@@ -14,8 +14,6 @@ var app = new Vue (
     FilterMovie(){
       console.log(app.search);
       {
-
-
 
       axios
 
@@ -33,9 +31,18 @@ var app = new Vue (
     }
   },
 
+  // Funzione per arrotondare per eccesso all’unità successiva
+    getAverage(star) {
+      return Math.ceil(star / 2);
+    },
 
-},
-}
+  // funzione per generare le bandiere
+    getFlag(lang){
+      return 'img/'+ lang +'.png';
+    }
+  },
+
+  }
 )
 
 
@@ -43,12 +50,7 @@ var app = new Vue (
 // results:{Movie List Result Object}
 // poster_path
 // overview
-// release_date
-// genre_ids
-// id
 // original_title
 // original_language
 // title
-// popularity
-// vote_count
 // vote_average

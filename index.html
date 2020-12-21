@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.0/axios.min.js" charset="utf-8"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     <title>Boolflix</title>
@@ -16,6 +17,7 @@
         <div class="search-button">
           <div class="container">
             <span id="remove"></span>
+            <!-- Cliccando si devono cercare sull’API tutti i film che contengono ciò che ha scritto l’utente. -->
             <input type="search" @keyup.enter="FilterMovie"
             v-model="search" id="search" placeholder="&#128269; Search a movie">
           </div>
@@ -24,14 +26,25 @@
       <main id="container-card">
         <div v-for="movie in movies"class="card">
           <img v-if="movie.poster_path != null":src="imgPrefix + movie.poster_path" alt="">
+          <!-- Utilizziamo un’immagine placeholder quando non riceviamo una copertina dall’API. -->
           <img class="defaultPoster"v-else :src="defaultPoster" alt="">
           <div class="movie-data">
             <ul>
-              <li><strong>Titolo: </strong>{{ movie.title}}</li>
-              <li><strong>Titolo orginale: </strong>{{  movie.original_title }}</li>
-              <li><strong>Lingua: </strong> {{ movie.original_language }}</li>
-              <li><strong>Voto:</strong> {{ movie.vote_average }}</li>
-              <li><strong>Overview: </strong>{{ movie.overview }}</li>
+              <li><strong>Titolo: </strong>{{ movie.title}}
+              </li>
+              <li><strong>Titolo orginale: </strong>{{  movie.original_title }}
+              </li>
+              <li v-if="flags.includes(movie.original_language)"><strong>Lingua: </strong>
+                <img class="flags":src= "getFlag(movie.original_language)" alt="">
+              </li>
+              <li v-else><strong>Lingua: </strong>{{ movie.original_language }}
+              </li>
+              <li><strong>Voto: </strong>
+                <i v-for="star in getAverage (movie.vote_average)"class="fas fa-star"></i>
+                <i v-for="star in (5 - getAverage(movie.vote_average))" class="far fa-star"></i>
+              </li>
+              <li><strong>Overview: </strong>{{ movie.overview }}
+              </li>
             </ul>
           </div>
         </div>
@@ -40,3 +53,16 @@
     <script src="js/script.js" charset="utf-8"></script>
   </body>
 </html>
+
+
+
+
+<!-- esempi -->
+<!--
+ <div v-if="(selectedProducts.length <= 2) && ( selectedProducts.includes('Apples') || selectedProducts.includes('Pears') )">
+...show mycontent...
+</div>
+
+data: {
+    selectedProducts: []
+} -->
