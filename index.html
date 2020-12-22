@@ -14,6 +14,10 @@
     <div id="root">
       <header>
         <h1>BOOLFLIX</h1>
+        <select v-on:change=""v-model="genreSelected">
+          <option value="all">All</option>
+          <option v-for="genre in genres">{{ genre.name }}</option>
+        </select>
         <div class="search-button">
           <div class="container">
             <span id="remove"></span>
@@ -28,9 +32,9 @@
           <img class="defaultPoster"v-else :src="defaultPoster" alt="">
           <div class="movie-data">
             <ul>
-              <li><strong>Titolo: </strong>{{ movie.title}}
+              <li><strong>Titolo: </strong>{{ movie.title || movie.name}}
               </li>
-              <li><strong>Titolo orginale: </strong>{{  movie.original_title }}
+              <li><strong>Titolo orginale: </strong>{{  movie.original_title || movie.original_name}}
               </li>
               <li v-if="flags.includes(movie.original_language)"><strong>Lingua: </strong>
                 <img class="flags":src= "getFlag(movie.original_language)" alt="">
@@ -45,6 +49,7 @@
               <li v-if="movie.overview != ''"><strong>Overview: </strong>{{ movie.overview }}
               </li>
               <li v-else><strong>Overview: </strong>n.d.</li>
+              <li ><strong>Genere: </strong>{{  }}</li>
             </ul>
           </div>
         </div>
