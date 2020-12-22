@@ -26,12 +26,17 @@ var app = new Vue (
         }
 
         axios
-
         .get("https://api.themoviedb.org/3/search/movie", params)
         .then((result)=> {
           this.movies=result.data.results
         })
 
+
+        axios
+        .get("https://api.themoviedb.org/3/search/tv", params)
+        .then((result)=> {
+          this.movies=this.movies.concat(result.data.results)
+        })
       }
     }
   },
@@ -50,7 +55,6 @@ var app = new Vue (
 }
 )
 
-// provare a fare un concat per le serie tv
-// var hege = ["Cecilie", "Lone"];
-// var stale = ["Emil", "Tobias", "Linus"];
-// var children = hege.concat(stale);
+// JavaScript concat() Method : Array Object
+// it returns a copy of the same elements combined from the original arrays.
+// var joinarray=array1.concat(array2,array3);
