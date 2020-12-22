@@ -37,12 +37,14 @@
               </li>
               <li v-else><strong>Lingua: </strong>{{ movie.original_language }}
               </li>
-              <li><strong>Voto: </strong>
+              <li v-if="movie.vote_average > 0"><strong>Voto: </strong>
                 <i v-for="star in getAverage (movie.vote_average)"class="fas fa-star"></i>
                 <i v-for="star in (5 - getAverage(movie.vote_average))" class="far fa-star"></i>
               </li>
-              <li><strong>Overview: </strong>{{ movie.overview }}
+              <li v-else><strong>Voto: </strong>n.d.</li>
+              <li v-if="movie.overview != ''"><strong>Overview: </strong>{{ movie.overview }}
               </li>
+              <li v-else><strong>Overview: </strong>n.d.</li>
             </ul>
           </div>
         </div>
@@ -51,3 +53,10 @@
     <script src="js/script.js" charset="utf-8"></script>
   </body>
 </html>
+
+
+
+
+<!-- - gestire name /title uguali -->
+<!-- - gestire ricerche e avvisi -->
+<!-- - provare  a raggruppare parametri -->
