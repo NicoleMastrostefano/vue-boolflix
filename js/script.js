@@ -68,7 +68,7 @@ var app = new Vue (
       genre_ids.forEach(id => {
         this.genres.forEach(genre => {
           if (genre.id == id) {
-            genres = genre.name + ", "
+            genres += genre.name + ", "
           }
         })
       })
