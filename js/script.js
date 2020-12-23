@@ -63,8 +63,17 @@ var app = new Vue (
       return 'img/'+ lang +'.png';
     },
 
-    getGenre(){}
-
+    getGenres(genre_ids) {
+      let genres = [];
+      genre_ids.forEach(id => {
+        this.genres.forEach(genre => {
+          if (genre.id == id) {
+            genres = genre.name + ", "
+          }
+        })
+      })
+      return genres.slice();
+    },
   },
 
   created() {

@@ -49,7 +49,7 @@
               <li v-if="movie.overview != ''"><strong>Overview: </strong>{{ movie.overview }}
               </li>
               <li v-else><strong>Overview: </strong>n.d.</li>
-              <li ><strong>Genere: </strong>{{  }}</li>
+              <li v-if="movie.genre_ids > 0" ><strong>Genere: </strong>{{getGenres(movie.genre_ids)}}</li>
             </ul>
           </div>
         </div>
