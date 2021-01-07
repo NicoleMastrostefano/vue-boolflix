@@ -7,17 +7,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.0/axios.min.js" charset="utf-8"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
     <title>Boolflix</title>
   </head>
   <body>
     <div id="root">
       <header>
         <h1>BOOLFLIX</h1>
-        <select v-on:change=""v-model="genreSelected">
-          <option value="all">All</option>
-          <option v-for="genre in genres">{{ genre.name }}</option>
-        </select>
         <div class="search-button">
           <div class="container">
             <span id="remove"></span>
@@ -27,7 +23,7 @@
         </div>
       </header>
       <main id="container-card">
-        <div v-for="movie in movies"class="card">
+        <div v-for="(movie,index) in movies"class="card">
           <img v-if="movie.poster_path != null":src="imgPrefix + movie.poster_path" alt="">
           <img class="defaultPoster"v-else :src="defaultPoster" alt="">
           <div class="movie-data">
@@ -49,7 +45,8 @@
               <li v-if="movie.overview != ''"><strong>Overview: </strong>{{ movie.overview }}
               </li>
               <li v-else><strong>Overview: </strong>n.d.</li>
-              <li v-if="movie.genre_ids.length > 0" ><strong>Genere: </strong>{{getGenres(movie.genre_ids)}}</li>
+              <li v-if="movie.genre_ids.length >  0"><strong>Genere: </strong>{{ getGenres(movie.genre_ids) }}</li>
+              <li v-else><strong>Genere: </strong>n.d.</li>
             </ul>
           </div>
         </div>

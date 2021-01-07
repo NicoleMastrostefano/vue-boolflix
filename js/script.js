@@ -8,26 +8,26 @@ var app = new Vue (
       defaultPoster:"img/images.png",
       flags:["it","en","fr"],
       genres: [],
-      genreUrl: "https://api.themoviedb.org/3/genre/movie/list?api_key=10a6546780c9082d52c54eb9c07f5d67",
-      genreSelected:"all",
-      loading: true,
+      genreUrl: "https://api.themoviedb.org/3/genre/movie/list?api_key=adb08e6d46258c873174c3f5773f620a",
     },
 
   methods:{
+
     //  chiamata generi
     filterGenres() {
     axios
       .get(this.genreUrl)
-      .then(response => {
-        this.genres = response.data.genres;
+      .then(result => {
+        this.genres = result.data.genres;
       })
     },
 
-    // ricerca per nome
+    // ricerca per titolo
     FilterMovie(){
       console.log(app.search);
       {if (this.search!= '') {
         this.movies = [];
+
 
         const params = {
           params: {
@@ -37,20 +37,21 @@ var app = new Vue (
           }
         }
 
+        //chiamata serie tv
         axios
         .get("https://api.themoviedb.org/3/search/movie", params)
         .then((result)=> {
           this.movies=this.movies.concat(result.data.results)
         })
 
+        //chiamata film
         axios
         .get("https://api.themoviedb.org/3/search/tv", params)
         .then((result)=> {
           this.movies=this.movies.concat(result.data.results)
         })
-        .finally(() => this.loading = false)
-      }}
-
+      }
+    }
     },
 
     // Funzione per arrotondare per eccesso all’unità successiva
@@ -63,23 +64,26 @@ var app = new Vue (
       return 'img/'+ lang +'.png';
     },
 
+    //funzione per ottenere i generi
     getGenres(genre_ids) {
       let genres = [];
       genre_ids.forEach(id => {
         this.genres.forEach(genre => {
           if (genre.id == id) {
-            genres += genre.name + ", "
+             genres=genres+genre.name +', '
           }
         })
       })
-      return genres.slice();
+      return genres.slice(0,-2)
     },
+
   },
+
 
   created() {
     this.filterGenres();
-
   },
+
 
 }
 )
